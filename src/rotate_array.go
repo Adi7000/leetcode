@@ -1,21 +1,18 @@
 package leetcode
 
 func Rotate(nums []int, k int) {
-	k = k % len(nums)
-	if k == 0 || len(nums) == 1 || len(nums) == k {
-		return
-	}
+	n := len(nums)
+	k = k % n
 
-	reverse(nums[:len(nums)-k])
-	reverse(nums[len(nums)-k:])
-	reverse(nums)
-
+	reverse(nums, 0, n-1)
+	reverse(nums, 0, k-1)
+	reverse(nums, k, n-1)
 }
 
-func reverse(nums []int) {
-	for i := 0; i < len(nums)/2; i++ {
-		swap_storage := nums[i]
-		nums[i] = nums[len(nums)-1-i]
-		nums[len(nums)-1-i] = swap_storage
+func reverse(nums []int, start int, end int) {
+	for start < end {
+		nums[start], nums[end] = nums[end], nums[start]
+		start++
+		end--
 	}
 }
