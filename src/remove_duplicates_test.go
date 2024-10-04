@@ -16,3 +16,14 @@ func TestRemoveDuplicates(t *testing.T) {
 		assert.Equal(t, expected[i], nums[i])
 	}
 }
+
+func TestRemoveDuplicatesSmallArray(t *testing.T) {
+	nums := []int{1}
+	k := removeDuplicates(nums)
+	expected := []int{1}
+
+	assert.Equal(t, k, len(expected))
+	for i := 0; i < k; i++ {
+		assert.Equal(t, expected[i], nums[i])
+	}
+}
