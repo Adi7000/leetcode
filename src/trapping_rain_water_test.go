@@ -16,3 +16,8 @@ func TestTrapExample2(t *testing.T) {
 	actual := trap(heights)
 	assert.Equal(t, 9, actual)
 }
+func TestTrapExampleOneHeight(t *testing.T) {
+	heights := []int{4}
+	actual := trap(heights)
+	assert.Equal(t, 0, actual)
+}
