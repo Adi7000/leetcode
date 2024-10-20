@@ -18,6 +18,12 @@ func TestCanCompleteCircuitExample2(t *testing.T) {
 	actual := canCompleteCircuit(gas, cost)
 	assert.Equal(t, -1, actual)
 }
+func TestCanCompleteCircuitLastStationAnswer(t *testing.T) {
+	gas := []int{1, 1, 9}
+	cost := []int{3, 4, 3}
+	actual := canCompleteCircuit(gas, cost)
+	assert.Equal(t, 2, actual)
+}
 func TestCanCompleteCircuitOneReachableLocation(t *testing.T) {
 	gas := []int{2}
 	cost := []int{2}
