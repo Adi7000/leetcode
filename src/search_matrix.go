@@ -1,47 +1,44 @@
 package leetcode
 
 func searchMatrix(matrix [][]int, target int) bool {
-	row := len(matrix)
-	if row == 0 {
+	if len(matrix) == 0 || len(matrix[0]) == 0 {
 		return false
 	}
-	col := len(matrix[0])
-	if col == 0 {
-		return false
-	}
+	targetRow := findTargetRowInMatrix(&matrix, target)
+	return isTargetInRow(&(matrix[targetRow]), target)
+}
 
-	//Search target row
+func findTargetRowInMatrix(matrix *[][]int, target int) int {
 	low := 0
-	high := row
-	var targetRow int
+	high := len(*matrix)
 	for {
 		numCandidates := high - low
 		if numCandidates == 1 {
-			targetRow = low
-			break
+			return low
 		}
 		candidateRow := numCandidates/2 + low
-		if target < matrix[candidateRow][0] {
+		if target < (*matrix)[candidateRow][0] {
 			high = candidateRow
 		} else {
 			low = candidateRow
 		}
 	}
+}
 
-	//Search target column
-	low = 0
-	high = col
+func isTargetInRow(row *[]int, target int) bool {
+	low := 0
+	high := len(*row)
 	for {
 		numCandidates := high - low
 		if numCandidates == 1 {
-			if matrix[targetRow][low] == target {
+			if (*row)[low] == target {
 				return true
 			} else {
 				return false
 			}
 		}
 		candidateCol := numCandidates/2 + low
-		if target < matrix[targetRow][candidateCol] {
+		if target < (*row)[candidateCol] {
 			high = candidateCol
 		} else {
 			low = candidateCol
