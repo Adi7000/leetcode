@@ -1,7 +1,9 @@
-This repo stores my solutions to some leetcode problems. 
+# About
+**Author:** Aditya Goyal\
+**Description:** This repository stores my solutions to some leetcode problems. 
 
-#Usage: 
-
+# Usage
+## Development:
 Run "./new \${fileName} \${functionName}" 
 in the project directory to initialize solution for a new problem.
 
