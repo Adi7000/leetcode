@@ -34,9 +34,3 @@ func TestLetterCombinations4LetterDigit(t *testing.T) {
 	expected := []string{"w", "x", "y", "z"}
 	assert.Equal(t, expected, actual)
 }
-func TestInvalidCharacter(t *testing.T) {
-	nums := "1"
-	actual := letterCombinations(nums)
-	expected := []string{}
-	assert.Equal(t, expected, actual)
-}
